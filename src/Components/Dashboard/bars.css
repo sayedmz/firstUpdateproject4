@@ -1,0 +1,48 @@
+.dashboard {
+  min-height: 100vh;
+  background-color: #f7f8fa;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: white;
+  box-shadow: 0 0 3px 0 #f5c036;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.side-bar {
+  top: 70px;
+  left: 0;
+  background-color: white;
+  z-index: 1;
+  height: 100vh;
+  box-shadow: 0 0 0 1px #f5c036;
+}
+
+.side-bar-link {
+  color: rgb(69, 67, 67);
+  font-size: 18px;
+  transition: 0.3s;
+  padding: 10px 12px 10px 12px;
+  margin: 0 5px;
+  border-radius: 8px;
+}
+.side-bar-link:hover {
+  color: rgb(0, 0, 0);
+}
+.side-bar .active {
+  background-color: #fbcf5f;
+  color: white;
+}
+.side-bar .active:hover {
+  color: white;
+}
+
+a {
+  text-decoration: none !important;
+}

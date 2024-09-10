@@ -1,0 +1,53 @@
+.forbidden-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(251, 207, 95, 0.6);
+  overflow: hidden;
+  position: relative;
+}
+
+.forbidden-content {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-code {
+  font-size: 6rem;
+  font-weight: bold;
+  color: #e74c3c;
+  margin: 0;
+  animation: bounce 1s infinite;
+}
+
+.error-message {
+  font-size: 1.5rem;
+  color: #e74c3c;
+  margin: 20px 0;
+}
+
+.error-suggestion {
+  font-size: 1rem;
+  color: #e74c3c;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}

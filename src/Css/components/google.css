@@ -1,0 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+.google-btn {
+  width: 220px;
+  height: 50px;
+  background-color: orange;
+  border-radius: 3px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  user-select: none;
+  margin-top: 30px;
+}
+
+.google-btn .google-icon-wrapper {
+  position: absolute;
+
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 2px;
+}
+
+.google-btn .btn-text {
+  float: right;
+  margin: 15px 5px 0 0;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+.google-btn .btn-text2 {
+  float: right;
+  margin: 15px 0 0 0;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+.google-btn:hover {
+  box-shadow: 0 0 12px white;
+}
+.google-btn:active {
+  background: rgb(96, 63, 2);
+}
