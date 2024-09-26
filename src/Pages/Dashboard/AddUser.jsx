@@ -83,6 +83,7 @@ const AddUser = () => {
             <option value="1995">admin</option>
             <option value="2001">user</option>
             <option value="1996">writer</option>
+            <option value="1999">Product Manger</option>
           </Form.Select>
         </Form.Group>
         <button

@@ -1,4 +1,9 @@
-import { faPlus, faUsers } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartShopping,
+  faPlus,
+  faSquarePen,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 export const links = [
   {
     name: "users",
@@ -13,9 +18,22 @@ export const links = [
     role: "1995",
   },
   {
+    name: "Categories",
+    path: "/dashboard/categories",
+    icon: faCartShopping,
+    role: ["1995", "1999"],
+  },
+
+  {
+    name: "Add Categories",
+    path: "/dashboard/category/add",
+    icon: faPlus,
+    role: ["1995", "1999"],
+  },
+  {
     name: "Writer",
     path: "/dashboard/writer",
-    icon: faPlus,
+    icon: faSquarePen,
     role: ["1995", "1996"],
   },
 ];

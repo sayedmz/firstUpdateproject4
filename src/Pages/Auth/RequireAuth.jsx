@@ -11,7 +11,7 @@ import Error403 from "./403";
 const RequireAuth = ({ allowedRole }) => {
   const Navigate = useNavigate();
   const [user, setUsers] = useState("");
-  console.log("user", user);
+  // console.log("user", user);
   const cookie = Cookie();
   const token = cookie.get("commerce");
 

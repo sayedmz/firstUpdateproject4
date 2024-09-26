@@ -32,9 +32,13 @@ const Login = () => {
       const res = await axios.post(`${baseURL}/${LOGIN}`, form);
       setLoading(false);
       const token = res.data.token;
+      const role = res.data.user.role;
+      // console.log(role);
+      const go =
+        role === "1995" ? "users" : role === "1996" ? "writer" : "nice";
       cookie.set("commerce", token);
       // navigate("/dashboard/users", { replace: true });
-      window.location.pathname = "/dashboard/users";
+      window.location.pathname = `/dashboard/${go}`;
     } catch (err) {
       setLoading(false);
       if (err.response.status === 401) {

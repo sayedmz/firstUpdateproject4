@@ -4,6 +4,9 @@ export const REGISTER = "register";
 export const LOGIN = "login";
 export const LOGOUT = "logout";
 
+export const Cat = "categories";
+export const CAt = "category";
+
 //users
 export const USERS = "users";
 export const USER = "user";
