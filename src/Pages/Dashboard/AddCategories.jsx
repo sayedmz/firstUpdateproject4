@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 
@@ -10,7 +10,7 @@ import { Axios } from "../../Api/axios";
 const AddCategories = () => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
-
+  const focus = useRef("");
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
@@ -27,6 +27,10 @@ const AddCategories = () => {
       console.log(err);
     }
   }
+  //handle focus
+  useEffect(() => {
+    focus.current.focus();
+  }, []);
   return (
     <>
       {loading && <Loading />}
@@ -34,6 +38,7 @@ const AddCategories = () => {
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Title</Form.Label>
           <Form.Control
+            ref={focus}
             value={title}
             required
             onChange={(e) => setTitle(e.target.value)}
@@ -41,15 +46,14 @@ const AddCategories = () => {
             placeholder="Title...."
           />
         </Form.Group>
-        <Form>
-          <Form.Group className="mb-3" controlId="image">
-            <Form.Label>image</Form.Label>
-            <Form.Control
-              type="file"
-              onChange={(e) => setImage(e.target.files.item(0))}
-            />
-          </Form.Group>
-        </Form>
+
+        <Form.Group className="mb-3" controlId="image">
+          <Form.Label>image</Form.Label>
+          <Form.Control
+            type="file"
+            onChange={(e) => setImage(e.target.files.item(0))}
+          />
+        </Form.Group>
 
         <button
           disabled={title.length > 2 ? false : true}

@@ -9,13 +9,14 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import RequireAuth from "./Pages/Auth/RequireAuth";
 import User from "./Pages/Dashboard/User";
 import AddUser from "./Pages/Dashboard/AddUser";
-import Error403 from "./Pages/Auth/403";
 import Writer from "./Pages/Dashboard/Writer";
 import NotFound from "./Pages/Auth/404";
 import RequireBack from "./Pages/Auth/RequireBack";
-import Categories from "./Pages/Auth/Categories";
 import AddCategories from "./Pages/Dashboard/AddCategories";
 import Category from "./Pages/Dashboard/category";
+import Categories from "./Pages/Dashboard/Categories";
+import Products from "./Pages/Dashboard/Products";
+import AddProduct from "./Pages/Dashboard/AddProduct";
 
 function App() {
   return (
@@ -44,6 +45,11 @@ function App() {
               <Route path="categories" element={<Categories />} />
               <Route path="categories/:id" element={<Category />} />
               <Route path="category/add" element={<AddCategories />} />
+            </Route>
+            <Route element={<RequireAuth allowedRole={["1999", "1995"]} />}>
+              <Route path="products" element={<Products />} />
+              <Route path="product/:id" element={<Category />} />
+              <Route path="product/add" element={<AddProduct />} />
             </Route>
           </Route>
         </Route>

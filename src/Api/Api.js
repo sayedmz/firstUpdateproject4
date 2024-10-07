@@ -7,6 +7,9 @@ export const LOGOUT = "logout";
 export const Cat = "categories";
 export const CAt = "category";
 
+export const PRO = "products";
+export const Pro = "product";
+
 //users
 export const USERS = "users";
 export const USER = "user";

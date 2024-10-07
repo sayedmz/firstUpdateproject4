@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { LOGIN, baseURL } from "../../Api/Api";
 import Loading from "../../Components/Loading/Loading";
 import Cookie from "cookie-universal";
@@ -7,6 +7,8 @@ import google from "../../image/google_logo-google_icongoogle-512.webp";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
+  //ref
+  const focus = useRef("");
   //states
   const [form, setForm] = useState({
     name: "",
@@ -18,6 +20,10 @@ const Login = () => {
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
+  //handle focus
+  useEffect(() => {
+    focus.current.focus();
+  }, []);
   //loading
   const [loading, setLoading] = useState(false);
   //cookie
@@ -61,6 +67,7 @@ const Login = () => {
                 controlId="exampleForm.ControlInput1"
               >
                 <Form.Control
+                  ref={focus}
                   value={form.email}
                   name="email"
                   onChange={handleChange}
