@@ -6,7 +6,7 @@ import Loading from "../../Components/Loading/Loading";
 
 import axios from "axios";
 import { Axios } from "../../Api/axios";
-import Error403 from "./403";
+import Error403 from "../Errors/403";
 
 const RequireAuth = ({ allowedRole }) => {
   const Navigate = useNavigate();

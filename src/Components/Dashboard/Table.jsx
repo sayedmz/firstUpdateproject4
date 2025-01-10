@@ -14,6 +14,7 @@ function TableShow(props) {
   const dataShow = props.data.map((items1, key) => (
     <tr key={key}>
       <td>{key + 1}</td>
+
       {props.header.map((items2, key2) => (
         <td key={key2}>
           {items1[items2.keyy] === "1995" ? (
@@ -26,6 +27,12 @@ function TableShow(props) {
             "Product Manger"
           ) : items2.keyy === "image" ? (
             <img width={"200px"} src={items1[items2.keyy]} alt="error" />
+          ) : items2.keyy === "images" ? (
+            <div className="d-flex align-items-start justify-content-center gap-3">
+              {items1[items2.keyy].map((img) => (
+                <img src={img.image} style={{ width: "70px" }} alt="error1" />
+              ))}
+            </div>
           ) : (
             items1[items2.keyy]
           )}

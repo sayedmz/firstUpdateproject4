@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { USER, USERS, baseURL } from "../../Api/Api";
+import { USER, USERS, baseURL } from "../../../Api/Api";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Cookie from "cookie-universal";
-import TableShow from "../../Components/Dashboard/Table";
-import { Axios } from "../../Api/axios";
+import TableShow from "../../../Components/Dashboard/Table";
+import { Axios } from "../../../Api/axios";
 const Users = () => {
   const cookie = Cookie();
   const token = cookie.get("commerce");

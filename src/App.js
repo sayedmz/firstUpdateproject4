@@ -3,20 +3,21 @@ import "./App.css";
 import HomePage from "./Pages/Website/HomePage";
 import Login from "./Pages/Auth/Login";
 import Register from "./Pages/Auth/Register";
-import Users from "./Pages/Dashboard/Users";
+import Users from "./Pages/Dashboard/Users/Users";
 import GoogleCallBack from "./Pages/Auth/GoogleCallBack";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import RequireAuth from "./Pages/Auth/RequireAuth";
-import User from "./Pages/Dashboard/User";
-import AddUser from "./Pages/Dashboard/AddUser";
+import RequireAuth from "./Pages/Protecting/RequireAuth";
+import User from "./Pages/Dashboard/Users/User";
+import AddUser from "./Pages/Dashboard/Users/AddUser";
 import Writer from "./Pages/Dashboard/Writer";
-import NotFound from "./Pages/Auth/404";
-import RequireBack from "./Pages/Auth/RequireBack";
-import AddCategories from "./Pages/Dashboard/AddCategories";
-import Category from "./Pages/Dashboard/category";
-import Categories from "./Pages/Dashboard/Categories";
-import Products from "./Pages/Dashboard/Products";
-import AddProduct from "./Pages/Dashboard/AddProduct";
+import NotFound from "./Pages/Errors/404";
+import RequireBack from "./Pages/Protecting/RequireBack";
+import AddCategories from "./Pages/Dashboard/Category/AddCategories";
+import Category from "./Pages/Dashboard/Category/category";
+import Categories from "./Pages/Dashboard/Category/Categories";
+import Products from "./Pages/Dashboard/Product/Products";
+import AddProduct from "./Pages/Dashboard/Product/AddProduct";
+import UpdateProduct from "./Pages/Dashboard/Product/UpdateProduct";
 
 function App() {
   return (
@@ -48,7 +49,7 @@ function App() {
             </Route>
             <Route element={<RequireAuth allowedRole={["1999", "1995"]} />}>
               <Route path="products" element={<Products />} />
-              <Route path="product/:id" element={<Category />} />
+              <Route path="products/:id" element={<UpdateProduct />} />
               <Route path="product/add" element={<AddProduct />} />
             </Route>
           </Route>

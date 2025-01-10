@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { CAt, Cat } from "../../Api/Api";
+import { CAt, Cat } from "../../../Api/Api";
 
 import { Link } from "react-router-dom";
 
-import TableShow from "../../Components/Dashboard/Table";
-import { Axios } from "../../Api/axios";
+import TableShow from "../../../Components/Dashboard/Table";
+import { Axios } from "../../../Api/axios";
 const Categories = () => {
   const [categories, setCategories] = useState([]);
 

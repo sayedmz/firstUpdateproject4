@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useNavigate, useParams } from "react-router-dom";
-import { Axios } from "../../Api/axios";
-import { CAt } from "../../Api/Api";
-import Loading from "../../Components/Loading/Loading";
+import { Axios } from "../../../Api/axios";
+import { CAt } from "../../../Api/Api";
+import Loading from "../../../Components/Loading/Loading";
 const Category = () => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");

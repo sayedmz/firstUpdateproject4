@@ -1,31 +1,51 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-import { useParams } from "react-router-dom";
-
-import { USER, baseURL } from "../../Api/Api";
+import { useNavigate, useParams } from "react-router-dom";
+import { Axios } from "../../../Api/axios";
+import { USER, baseURL } from "../../../Api/Api";
 import Cookie from "cookie-universal";
 import axios from "axios";
-import Loading from "../../Components/Loading/Loading";
-const AddUser = () => {
+import Loading from "../../../Components/Loading/Loading";
+const User = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
-  const [password, setPassword] = useState("");
+  const [disable, setDisable] = useState(true);
   const [loading, setLoading] = useState(false);
-  const focus = useRef("");
+  const nav = useNavigate();
+  const params = useParams();
+  const { id } = params;
+  //   const id = Number(window.location.pathname.replace("/dashboard/users/", ""));
+  //   console.log("id", id);
   const cookie = Cookie();
   const token = cookie.get("commerce");
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`${baseURL}/${USER}/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((data) => {
+        {
+          setName(data.data.name);
+          setEmail(data.data.email);
+          setRole(data.data.role);
+          setLoading(false);
+        }
+      })
+      .then(() => setDisable(false))
+      .catch(() => nav("/not/404", { replace: true }));
+  }, []);
 
   async function handleSubmit(e) {
     setLoading(true);
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${baseURL}/${USER}/add`,
+        `${baseURL}/${USER}/edit/${id}`,
         {
           name: name,
           email: email,
-          password: password,
           role: role,
         },
         {
@@ -38,10 +58,6 @@ const AddUser = () => {
       console.log(err);
     }
   }
-  //handle focus
-  useEffect(() => {
-    focus.current.focus();
-  }, []);
   return (
     <>
       {loading && <Loading />}
@@ -49,7 +65,6 @@ const AddUser = () => {
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>User Name</Form.Label>
           <Form.Control
-            ref={focus}
             value={name}
             required
             onChange={(e) => setName(e.target.value)}
@@ -67,18 +82,6 @@ const AddUser = () => {
             placeholder="Enter email....."
           />
         </Form.Group>
-
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput4">
-          <Form.Label>password</Form.Label>
-          <Form.Control
-            value={password}
-            required
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            placeholder="Enter password....."
-          />
-        </Form.Group>
-
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput3">
           <Form.Label>Role</Form.Label>
           <Form.Select value={role} onChange={(e) => setRole(e.target.value)}>
@@ -88,20 +91,9 @@ const AddUser = () => {
             <option value="1995">admin</option>
             <option value="2001">user</option>
             <option value="1996">writer</option>
-            <option value="1999">Product Manger</option>
           </Form.Select>
         </Form.Group>
-        <button
-          disabled={
-            name.length > 2 &&
-            email.length > 3 &&
-            password.length > 6 &&
-            role !== ""
-              ? false
-              : true
-          }
-          className="btn btn-primary"
-        >
+        <button disabled={disable} className="btn btn-primary">
           Save
         </button>
       </Form>
@@ -109,4 +101,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default User;

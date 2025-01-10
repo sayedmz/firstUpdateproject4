@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 
-import { CAt } from "../../Api/Api";
+import { CAt } from "../../../Api/Api";
 
-import Loading from "../../Components/Loading/Loading";
-import { Axios } from "../../Api/axios";
+import Loading from "../../../Components/Loading/Loading";
+import { Axios } from "../../../Api/axios";
 
 const AddCategories = () => {
   const [title, setTitle] = useState("");

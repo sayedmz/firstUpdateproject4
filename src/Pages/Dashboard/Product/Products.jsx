@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { PRO, Pro } from "../../Api/Api";
+import { PRO, Pro } from "../../../Api/Api";
 import { Link } from "react-router-dom";
-import TableShow from "../../Components/Dashboard/Table";
-import { Axios } from "../../Api/axios";
+import TableShow from "../../../Components/Dashboard/Table";
+import { Axios } from "../../../Api/axios";
 const Products = () => {
   const [Products, setProducts] = useState([]);
-  console.log(Products);
 
   // get data
   useEffect(() => {
@@ -27,6 +26,7 @@ const Products = () => {
   }
 
   const header = [
+    { keyy: "images", name: "images" },
     { keyy: "title", name: "Title" },
     { keyy: "description", name: "Description" },
     { keyy: "price", name: "Price" },
